@@ -1,4 +1,4 @@
-//contact   - join two arrays 
+
 let info = document.getElementById('info');
 let add = document.getElementById('add');
 let color = []; 
