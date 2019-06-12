@@ -12,9 +12,10 @@ let index = 0 -1;
 add.addEventListener('click', function (){
    indexColor();
    info.value = '';
+   
 });
 
-buttons.appendChild(deleteFunction('Delete'));
+
 
 function addNew (newInfo){
 	index++;
@@ -28,7 +29,6 @@ function deleteFunction (deleteText){
 	    delButton.innerHTML = deleteText;
 	    delButton.classList = 'btn btn-danger btn-sm';
 	    delButton.addEventListener('click', function (){
-
 	    	   index = 1;
 	    	   list.removeChild(list.childNodes[index]);
 	    });
@@ -44,13 +44,23 @@ function indexColor (){
 	}
 	{
 
+
     let listInfo =  addNew(info.value);
     let newListElement = document.createElement('li');
         newListElement.classList ='list-group-item';
         newListElement.innerHTML = listInfo[index];
         list.appendChild(newListElement);
+        if (buttons.childElementCount == 1) {
+        	 buttons.appendChild(deleteFunction('Delete')); 
+        } 
    }
 }
+
+
+
+	
+	
+
 
 
 
