@@ -2,17 +2,26 @@
 <html>
 <head>
 	<title>List Abecode</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+
+	
 </head>
 <body>
 
+<div class='container'>
 <div id='list-wrapper'>
-	<ul id='list'>
-
-	</ul>
+	<ul class="list-group" id='list'>
+    </ul>
 </div>
 
-<input type='text' name='info' id='info'>
-<button id='add'>Add</button>
+<div class='py-4'>
+<input type='text' name='info' id='info' class='form-control'>
+</div>
+<div class='py-4'>
+<button id='add' class='btn btn-danger'>Add</button>
+</div>
+
+</div>
 
 <script src='javascript.js'></script>
 </body>
