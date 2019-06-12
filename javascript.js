@@ -1,4 +1,4 @@
-
+//Abecode ... 
 let info = document.getElementById('info');
 let add = document.getElementById('add');
 let color = []; 
@@ -30,6 +30,7 @@ function indexColor (){
 
     let listInfo =  addNew(info.value);
     let newListElement = document.createElement('li');
+        newListElement.classList ='list-group-item';
         newListElement.innerHTML = listInfo[index];
         list.appendChild(newListElement);
         console.log(list);
