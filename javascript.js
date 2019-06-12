@@ -19,6 +19,19 @@ function addNew (newInfo){
 }
 
 
+function deleteFunction (deleteText){
+	let delButton = document.createElement('button');
+	    delButton.innerHTML = deleteText;
+	    delButton.classList = 'btn btn-danger btn-sm';
+	    delButton.addEventListener('click', function (){
+            console.log('Delete function');
+	    });
+	    return delButton;
+}
+
+
+
+
 
 
 
@@ -33,6 +46,7 @@ function indexColor (){
         newListElement.classList ='list-group-item';
         newListElement.innerHTML = listInfo[index];
         list.appendChild(newListElement);
+        list.appendChild(deleteFunction('delete'));
         console.log(list);
 
    }
