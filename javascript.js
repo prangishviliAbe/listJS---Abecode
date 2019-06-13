@@ -48,12 +48,14 @@ let removeBtn  = buttons.appendChild(buttonElement());
 
 function listIndex (){
   let currentInfo = info.value;
+  if (currentInfo !== ''){
   listInfo.push(currentInfo);
   console.log(listInfo);
   index++;
   let listEl = listElmenet(listInfo[index]);
   list.appendChild(listEl);
   info.value = '';
+   }
   
 }
 
