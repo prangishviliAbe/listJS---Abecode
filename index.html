@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>List Abecode</title>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
-
-	
+	<title>Lister</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 </head>
 <body>
 
 <div class='container'>
-<div id='list-wrapper'>
-	<ul class="list-group" id='list'>
-
-    </ul>
+<div id='app'>
+	 <div class='pt-4'>
+      <ul id='list' class="list-group">
+       
+     </ul>
+     </div>
+     <div class='py-4'>
+        <textarea id='info' class='form-control' placeholder="Text:"></textarea>
+     </div>
+     <div id='buttons' class='py-4'>
+        <button id='add' class='btn btn-danger'>Add</button>
+     </div>
 
 </div>
-
-<div class='py-4'>
-<input type='text' name='info' id='info' placeholder="Text:" class='form-control'>
-</div>
-<div class='py-4' id='buttons'>
-<button id='add' class='btn btn-danger'>Add</button>
 </div>
 
-</div>
+
+
+
 
 <script src='javascript.js'></script>
 </body>

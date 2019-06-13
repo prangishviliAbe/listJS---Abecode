@@ -1,78 +1,59 @@
 //Abecode ... 
-let info = document.getElementById('info');
-let add = document.getElementById('add');
-let buttons = document.getElementById('buttons');
-let listItem = document.getElementById('list-item');
-let color = []; 
-let list = document.getElementById('list');
-let index = 0 -1;
 
+ //push() add new element at the top 
+
+let add  = document.getElementById('add');
+let info = document.getElementById('info');
+let list = document.getElementById('list');
+let app =  document.getElementById('app');
+let buttons = document.getElementById('buttons');
+let index = 0 - 1;
+
+let listInfo = [];
 
 
 add.addEventListener('click', function (){
-   indexColor();
-   info.value = '';
-   
+listIndex();
 });
 
 
 
-function addNew (newInfo){
-	index++;
-	color[index] = newInfo;
-	return color;
+function listElmenet (li_element){
+  let liElement = document.createElement('li');
+      liElement.innerHTML = li_element;
+      liElement.classList = 'list-group-item';
+      return liElement;
 }
 
 
-function deleteFunction (deleteText){
-	let delButton = document.createElement('button');
-	    delButton.innerHTML = deleteText;
-	    delButton.classList = 'btn btn-danger btn-sm';
-	    delButton.addEventListener('click', function (){
-	    	   index = 1;
-	    	   list.removeChild(list.childNodes[index]);
-	    });
-	    return delButton;
-}
-
-
-
-
-function indexColor (){
-	if (info.value == ''){
-		return false;
-	}
-	{
-
-
-    let listInfo =  addNew(info.value);
-    let newListElement = document.createElement('li');
-        newListElement.classList ='list-group-item';
-        newListElement.innerHTML = listInfo[index];
-        list.appendChild(newListElement);
-        if (buttons.childElementCount == 1) {
-        	 buttons.appendChild(deleteFunction('Delete')); 
-        } 
-   }
+function buttonElement  (){
+   let deleteButton = document.createElement('button');
+       deleteButton.innerHTML = 'Delete';
+       deleteButton.classList = 'btn btn-danger';
+       deleteButton.id = 'remove';
+       return deleteButton; 
 }
 
 
 
-	
-	
+let removeBtn  = buttons.appendChild(buttonElement());
+    removeBtn.addEventListener('click', function (){
+      listInfo.shift();
+      console.log(list);
+      list.removeChild(list.childNodes[1]);
+      console.log(listInfo);
+    });
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+function listIndex (){
+  let currentInfo = info.value;
+  listInfo.push(currentInfo);
+  console.log(listInfo);
+  index++;
+  let listEl = listElmenet(listInfo[index]);
+  list.appendChild(listEl);
+  info.value = '';
   
-  
+}
+
