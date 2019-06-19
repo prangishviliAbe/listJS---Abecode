@@ -5,7 +5,11 @@ let posts = [];
     const list =  document.getElementById('list');
     const remove = document.getElementById('remove');
     const add  =  document.getElementById('add');
-
+    
+    let app = document.getElementById('app');
+	let counterList = document.createElement('div');
+	    counterList.id = 'counter';
+	    app.appendChild(counterList);
 
 
 function getPost (){
@@ -35,6 +39,7 @@ function addPost (newPost){
 
 
 function deletePost (){
+  
    return new Promise((resolve, reject)=>{
      if (posts.shift()){
      	resolve();
@@ -45,25 +50,37 @@ function deletePost (){
    });
 }
 
+
+function checkList (){
+        counterList.innerHTML = posts.length;
+} 
+
+
 remove.addEventListener('click', function (){
-   deletePost().then(function (){
-      getPost();
-   });
+deletePost().then(function (){
+   getPost();
+   checkList();
 });
+});
+
 
 
 add.addEventListener('click', function (){
 
 if (info.value !== '' && title.value !== '') {
+
    addPost({title: title.value, body: info.value}).then(function (){
    getPost();
    info.value = '';
    title.value = '';
+   checkList();
 });
+
 }
 else{
    addPost(false);
 }
+
 });
 
 
