@@ -1,61 +1,75 @@
-//Abecode ... 
+let posts = [];
 
- //push() add new element at the top 
+	const info =  document.getElementById('info');
+	const title = document.getElementById('title');
+    const list =  document.getElementById('list');
+    const remove = document.getElementById('remove');
+    const add  =  document.getElementById('add');
 
-let add  = document.getElementById('add');
-let info = document.getElementById('info');
-let list = document.getElementById('list');
-let app =  document.getElementById('app');
-let buttons = document.getElementById('buttons');
-let index = 0 - 1;
 
-let listInfo = [];
+
+function getPost (){
+    let output = '';
+     list.innerHTML = '';
+    posts.forEach((post)=>{
+     output += `<div>${post.title} ${post.body}</div>`;
+     list.innerHTML = output;
+    });
+
+}
+
+
+
+function addPost (newPost){
+   return new Promise ((resolve, reject)=>{ 
+   	if (newPost !== false) {
+   		posts.push(newPost)
+   		resolve();
+   	}
+   	else{
+   		reject('Something is wrong');
+   	}
+   });
+}
+
+
+
+function deletePost (){
+   return new Promise((resolve, reject)=>{
+     if (posts.shift()){
+     	resolve();
+     }
+     else{
+     	reject('delete is not happened');
+     }
+   });
+}
+
+remove.addEventListener('click', function (){
+   deletePost().then(function (){
+      getPost();
+   });
+});
 
 
 add.addEventListener('click', function (){
-listIndex();
+
+if (info.value !== '' && title.value !== '') {
+   addPost({title: title.value, body: info.value}).then(function (){
+   getPost();
+   info.value = '';
+   title.value = '';
+});
+}
+else{
+   addPost(false);
+}
 });
 
 
 
-function listElmenet (li_element){
-  let liElement = document.createElement('li');
-      liElement.innerHTML = li_element;
-      liElement.classList = 'list-group-item';
-      return liElement;
-}
-
-
-function buttonElement  (){
-   let deleteButton = document.createElement('button');
-       deleteButton.innerHTML = 'Delete';
-       deleteButton.classList = 'btn btn-danger';
-       deleteButton.id = 'remove';
-       return deleteButton; 
-}
 
 
 
-let removeBtn  = buttons.appendChild(buttonElement());
-    removeBtn.addEventListener('click', function (){
-      listInfo.shift();
-      console.log(list);
-      list.removeChild(list.childNodes[1]);
-      console.log(listInfo);
-    });
 
-
-
-function listIndex (){
-  let currentInfo = info.value;
-  if (currentInfo !== ''){
-  listInfo.push(currentInfo);
-  console.log(listInfo);
-  index++;
-  let listEl = listElmenet(listInfo[index]);
-  list.appendChild(listEl);
-  info.value = '';
-   }
-  
-}
 

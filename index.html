@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Lister</title>
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<title>Promise application</title>
 </head>
 <body>
+ 
+ <div id='app'>
+ 	<div id='list'></div>
 
-<div class='container'>
-<div id='app'>
-	 <div class='pt-4'>
-      <ul id='list' class="list-group">
-       
-     </ul>
-     </div>
-     <div class='py-4'>
-        <textarea id='info' class='form-control' placeholder="Text:"></textarea>
-     </div>
-     <div id='buttons' class='py-4'>
-        <button id='add' class='btn btn-danger'>Add</button>
-     </div>
-
-</div>
-</div>
-
-
-
-
+     <p>
+     <input type='text' name='title' id='title'>
+     </p>
+ 	 <textarea name='info' id='info'></textarea>
+ 	<p>
+  	 <button id='add'>Add</button>
+  	 <button id='remove'>Dlete</button>
+    </p>
+ </div>
 
 <script src='javascript.js'></script>
 </body>
