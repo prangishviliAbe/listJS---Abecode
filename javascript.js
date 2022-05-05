@@ -1,13 +1,13 @@
 let posts = [];
 
-	const info =  document.getElementById('info');
-	const title = document.getElementById('title');
+    const info =  document.getElementById('info');
+    const title = document.getElementById('title');
     const list =  document.getElementById('list');
     const remove = document.getElementById('remove');
     const add  =  document.getElementById('add');
     
     let app = document.getElementById('app');
-	let counterList = document.createElement('div');
+    let counterList = document.createElement('div');
 	    counterList.id = 'counter';
 	    app.appendChild(counterList);
 
